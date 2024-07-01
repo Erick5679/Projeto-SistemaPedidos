@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Registro de Usuário</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel for="nome" value="Nome:" />
+			<h:inputText id="nome" value="#{usuarioController.usuario.nome}"
+				required="true" />
+
+			<h:outputLabel for="email" value="Email:" />
+			<h:inputText id="email" value="#{usuarioController.usuario.email}"
+				required="true" />
+
+			<h:outputLabel for="senha" value="Senha:" />
+			<h:inputSecret id="senha" value="#{usuarioController.usuario.senha}"
+				required="true" />
+
+			<h:outputLabel for="tipo" value="Tipo:" />
+			<h:selectOneMenu id="tipo" value="#{usuarioController.usuario.tipo}">
+				<f:selectItem itemValue="comprador" itemLabel="Comprador" />
+				<f:selectItem itemValue="vendedor" itemLabel="Vendedor" />
+			</h:selectOneMenu>
+
+			<h:commandButton value="Registrar"
+				action="#{usuarioController.salvar}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
